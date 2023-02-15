@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.imgComparison {
+  width: 390px;
+}
+
+main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.calculator {
+  height: 844px;
+  width: 390px;
+  background-color: #000000;
+}
+
+.keypad {
+  height: 59%;
+  display: grid;
+  grid-template-columns: repeat(4, 78px);
+  grid-template-rows: repeat(5, 78px);
+  justify-content: space-evenly;
+  align-content: space-evenly;
+}
+.keypad .button--zero {
+  grid-column: span 2;
+}
+
+.displayPanel {
+  height: 35%;
+  color: #F9F9F9;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.displayPanel__main {
+  display: flex;
+  justify-content: end;
+  font-size: 4rem;
+  padding-right: 40px;
+}
+
+.button {
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F9F9F9;
+  font-size: 2.2rem;
+}
+.button--zero {
+  justify-content: left;
+  padding-left: 30px;
+  border-radius: 20%/50%;
+}
+
+.orange {
+  background-color: #FF9400;
+}
+
+.lightGrey {
+  background-color: #A5A5A5;
+  color: #000000;
+}
+
+.darkGrey {
+  background-color: #333333;
+}
+
+/*# sourceMappingURL=styles.css.map */

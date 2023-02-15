@@ -1,0 +1,27 @@
+.button{
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: map-get($colors, "btnWhite");
+    font-size: 2.2rem;
+
+    &--zero{
+        justify-content: left;
+        padding-left: 30px;
+        border-radius: 20% / 50%;
+    }
+}
+
+.orange{
+    background-color: map-get($colors, "btnOrange");
+}
+
+.lightGrey{
+    background-color: map-get($colors, "btnLightGrey");
+    color: map-get($colors, "btnBlack");
+}
+
+.darkGrey{
+    background-color: map-get($colors, "btnDarkGrey");
+}
