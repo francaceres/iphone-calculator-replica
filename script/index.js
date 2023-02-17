@@ -1,8 +1,6 @@
 let displayPanelNum = 0;
-let numbers = [];
+let operation = [];
 let numCurrent = "";
-let operation;
-let result;
 let followUp = false;
 const nameBtn = "btn";
 
@@ -18,10 +16,10 @@ const numberConcat = (num, numConcat) => {
 
 const numberPush = (num) => {
     if (Number.isInteger(parseFloat(num))){
-        numbers.push(parseInt(num))
+        operation.push(parseInt(num))
     }
     else{
-        numbers.push(parseFloat(num))
+        operation.push(parseFloat(num))
     }
     numCurrent = ""
 }
@@ -29,11 +27,6 @@ const numberPush = (num) => {
 const isNumeric = (val) => {
     return !isNaN(parseInt(val))
 }
-
-const addition = (total, num) => total + num
-const substraction = (total, num) => total - num
-const multiplication = (total, num) => total * num
-const division = (total, num) => total / num
 
 const pointHandler = () => {
     if (numCurrent === ""){
@@ -50,6 +43,7 @@ const pointHandler = () => {
 
 // hay un problema cuando sumas algunos números con coma a otros, no sé qué es. Ejemplo: 2.3 + 0.4
 }
+
 
 const displayChange = (value) => {
     console.log(value)
@@ -76,24 +70,35 @@ const displayChange = (value) => {
     }
 }
 
+const insertResult = (i, res) => {
+    operation[i-1] = res
+    operation.splice(i, 2)
+    return 0
+}
+
 const getResult = () => {
-    switch (operation){
-        case "Addition":
-            console.log(numbers)
-            result = numbers.reduce(addition)
-            break
-        case "Substraction":
-            result = numbers.reduce(substraction)
-            break
-        case "Multiplication":
-            result = numbers.reduce(multiplication)
-            break
-        case "Division":
-            result = numbers.reduce(division)
-            break
+    for(let i = 0; i <= operation.length; i++){
+        if(operation[i] === "Multiplication"){
+            const res = operation[i-1] * operation[i+1]
+            i = insertResult(i, res)
+        }
+        if(operation[i] === "Division"){
+            const res = operation[i-1] / operation[i+1]
+            i = insertResult(i, res)
+        }
     }
-    displayPanelNum = result
-    numbers = [result]
+    for(let i = 0; i <= operation.length; i++){
+        if(operation[i] === "Addition"){
+            const res = operation[i-1] + operation[i+1]
+            i = insertResult(i, res)
+        }
+        if(operation[i] === "Substraction"){
+            const res = operation[i-1] - operation[i+1]
+            i = insertResult(i, res)
+        }
+    }
+
+    displayPanelNum = operation
     followUp = true
 }
 
@@ -109,25 +114,25 @@ const normalOperation = (buttonId) => {
         getResult()
     }
     else if(displayPanelNum !== 0){
-        operation = buttonId
         displayChange(buttonId)
         numberPush(numCurrent)
+        operation.push(buttonId)
     }
 }
 
 const followUpOperation = (buttonId) => {
     if (isNumeric(buttonId)){
-        numbers = []
+        operation = []
         displayPanelNum = 0
         displayChange(buttonId)
         numCurrent = numberConcat(buttonId, numCurrent)
     }else if (buttonId == "Point"){
-        numbers = []
+        operation = []
         displayPanelNum = 0
         pointHandler()
     }else if (buttonId !== "Equal"){
-        operation = buttonId
         displayChange(buttonId)
+        operation.push(buttonId)
     }
     followUp = false
 }
@@ -136,7 +141,7 @@ const buttonHandler = (eventId) => {
     let buttonId = eventId.substring(nameBtn.length)
     if (buttonId == "Clear"){
         displayPanelNum = 0
-        numbers = []
+        operation = []
         followUp = false
     }else if (!followUp){
         normalOperation(buttonId)
@@ -156,7 +161,7 @@ const btnAnimation = (e, button) => {
 
 const clickHandler = (e) => {
     let id = e.target.id
-    if (id.includes("btn")){
+    if (id.includes(nameBtn)){
         buttonHandler(id)
         btnAnimation(e, e.target)
     }
