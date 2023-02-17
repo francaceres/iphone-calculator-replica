@@ -1,0 +1,8 @@
+@keyframes buttonAnimation{
+    50% {background-color: map-get($colors, "btnWhite");}
+}
+
+.buttonAnim{
+    animation-name: buttonAnimation;
+    animation-duration: 0.3s;
+}

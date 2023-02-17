@@ -12,7 +12,7 @@
     justify-content: space-evenly;
     align-content: space-evenly;
 
-    .button--zero{
+    .bttn--zero{
         grid-column: span 2;
     }
 }
@@ -21,13 +21,8 @@
     height:35%;
     color: map-get($colors, "btnWhite");
     display: flex;
-    flex-direction: column;
     justify-content: end;
-
-    &__main{
-        display: flex;
-        justify-content: end;
-        font-size: 4rem;
-        padding-right: 40px;
-    }
+    align-items: end;
+    font-size: 4rem;
+    padding-right: 40px;
 }

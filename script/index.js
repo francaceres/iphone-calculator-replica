@@ -1,4 +1,4 @@
-let displayMainNum = 0;
+let displayPanelNum = 0;
 let numbers = [];
 let numCurrent = "";
 let operation;
@@ -38,14 +38,14 @@ const division = (total, num) => total / num
 const pointHandler = () => {
     if (numCurrent === ""){
         numCurrent = "0."
-        if (displayMainNum === 0){
-            displayMainNum += "."
+        if (displayPanelNum === 0){
+            displayPanelNum += "."
         }else{
-            displayMainNum += "0."
+            displayPanelNum += "0."
         }
     }else if (!numCurrent.includes(".")){
         numCurrent = numberConcat(".", numCurrent)
-        displayMainNum += "."
+        displayPanelNum += "."
     }
 
 // hay un problema cuando sumas algunos números con coma a otros, no sé qué es. Ejemplo: 2.3 + 0.4
@@ -53,24 +53,24 @@ const pointHandler = () => {
 
 const displayChange = (value) => {
     console.log(value)
-    if (displayMainNum === 0 && isNumeric(value)){
-        displayMainNum = value
+    if (displayPanelNum === 0 && isNumeric(value)){
+        displayPanelNum = value
     }else if (isNumeric(value)){
-        displayMainNum += value
+        displayPanelNum += value
     }
     else{
         switch (value){
             case "Addition":
-                displayMainNum += "+"
+                displayPanelNum += "+"
                 break
             case "Substraction":
-                displayMainNum += "-"
+                displayPanelNum += "-"
                 break
             case "Multiplication":
-                displayMainNum += "x"
+                displayPanelNum += "x"
                 break
             case "Division":
-                displayMainNum += "÷"
+                displayPanelNum += "÷"
                 break
         }
     }
@@ -92,7 +92,7 @@ const getResult = () => {
             result = numbers.reduce(division)
             break
     }
-    displayMainNum = result
+    displayPanelNum = result
     numbers = [result]
     followUp = true
 }
@@ -108,7 +108,7 @@ const normalOperation = (buttonId) => {
         numberPush(numCurrent)
         getResult()
     }
-    else if(displayMainNum !== 0){
+    else if(displayPanelNum !== 0){
         operation = buttonId
         displayChange(buttonId)
         numberPush(numCurrent)
@@ -118,12 +118,12 @@ const normalOperation = (buttonId) => {
 const followUpOperation = (buttonId) => {
     if (isNumeric(buttonId)){
         numbers = []
-        displayMainNum = 0
+        displayPanelNum = 0
         displayChange(buttonId)
         numCurrent = numberConcat(buttonId, numCurrent)
     }else if (buttonId == "Point"){
         numbers = []
-        displayMainNum = 0
+        displayPanelNum = 0
         pointHandler()
     }else if (buttonId !== "Equal"){
         operation = buttonId
@@ -135,7 +135,7 @@ const followUpOperation = (buttonId) => {
 const buttonHandler = (eventId) => {
     let buttonId = eventId.substring(nameBtn.length)
     if (buttonId == "Clear"){
-        displayMainNum = 0
+        displayPanelNum = 0
         numbers = []
         followUp = false
     }else if (!followUp){
@@ -144,19 +144,26 @@ const buttonHandler = (eventId) => {
     else{
         followUpOperation(buttonId)
     }
-    displayMain.innerText = displayMainNum
+    displayPanel.innerText = displayPanelNum
+}
+
+const btnAnimation = (e, button) => {
+    e.preventDefault;
+    button.classList.remove("buttonAnim");
+    void button.offsetWidth;
+    button.classList.add("buttonAnim");
 }
 
 const clickHandler = (e) => {
     let id = e.target.id
     if (id.includes("btn")){
         buttonHandler(id)
+        btnAnimation(e, e.target)
     }
 }
 
 
-let displayMain = document.getElementById("displayMain")
-displayMain.innerText = displayMainNum
+let displayPanel = document.getElementById("displayPanel")
+displayPanel.innerText = displayPanelNum
 
-let keypad = document.getElementById("keypad")
 document.onclick = clickHandler
