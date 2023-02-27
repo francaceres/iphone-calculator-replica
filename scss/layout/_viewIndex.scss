@@ -1,0 +1,17 @@
+.mainIndex{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.viewController{
+    display: flex;
+    justify-content: end;
+    column-gap: 30px;
+    font-size: 1.3rem;
+    margin: 15px 30px;
+
+    .checkReference{
+        transform: scale(1.5);
+    }
+}

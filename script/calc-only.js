@@ -162,20 +162,8 @@ const clickHandler = (e) => {
     }
 }
 
-const referenceView = (e) => {
-    if (e.target.checked){
-        imgReference.removeAttribute("hidden", "hidden")
-    }else{
-        imgReference.setAttribute("hidden", "hidden")
-    }
-}
-
 
 const displayPanel = document.getElementById("displayPanel")
 displayPanel.innerText = displayPanelNum
-
-const referenceCheckbox = document.getElementById("viewReference")
-const imgReference = document.getElementById("imgReference")
-referenceCheckbox.onchange = referenceView
 
 document.onclick = clickHandler

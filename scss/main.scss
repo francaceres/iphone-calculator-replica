@@ -7,9 +7,12 @@
     'base/typography';  
 
 @import
-    'layout/comparison',
-    'layout/view',
-    'layout/calculator';
+    'layout/reference',
+    'layout/viewIndex',
+    'layout/viewAbout',
+    'layout/calculator',
+    'layout/nav';
 
 @import
-    'components/buttons';
+    'components/buttons',
+    'components/links';

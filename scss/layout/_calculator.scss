@@ -2,10 +2,14 @@
     height: 844px;
     width: 390px;
     background-color: map-get($colors, "btnBlack" );
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 2% ;
 }
 
 .keypad{
-    height: 59%;
+    height: 60%;
     display: grid;
     grid-template-columns: repeat(4, 78px);
     grid-template-rows: repeat(5, 78px);
@@ -18,11 +22,11 @@
 }
 
 .displayPanel{
-    height:35%;
     color: map-get($colors, "btnWhite");
     display: flex;
     justify-content: end;
     align-items: end;
     font-size: 4rem;
-    padding-right: 40px;
+    padding: 0 40px;
+    width: 100%;
 }

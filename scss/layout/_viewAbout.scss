@@ -1,0 +1,30 @@
+.mainAbout{
+    margin: 3% 15%;
+    text-align: center;
+
+    .aboutP{
+        display: flex;
+        align-items: center;
+        column-gap: 5%;
+        margin: 5% 0;
+        background-color: map-get($colors, "btnLightGrey");
+        color: map-get($colors, "btnWhite");
+        padding: 3%;
+    }
+
+    img{
+        max-width: 25%;
+    }
+
+    h3{
+        font-size: 1.2rem;
+    }
+    
+    h2{
+        display: inline;
+        padding: 1%;
+        background-color: map-get($colors, "btnLightGrey");
+        color: map-get($colors, "btnWhite");
+    }
+
+}

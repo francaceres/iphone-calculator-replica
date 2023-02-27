@@ -22,23 +22,73 @@ button {
   font-family: "Inter", sans-serif;
 }
 
-.imgComparison {
+h1 {
+  font-size: 2rem;
+}
+
+h2, h3 {
+  font-size: 1.5rem;
+}
+
+.imgReference {
   width: 390px;
 }
 
-main {
+.mainIndex {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+}
+
+.viewController {
+  display: flex;
+  justify-content: end;
+  column-gap: 30px;
+  font-size: 1.3rem;
+  margin: 15px 30px;
+}
+.viewController .checkReference {
+  transform: scale(1.5);
+}
+
+.mainAbout {
+  margin: 3% 15%;
+  text-align: center;
+}
+.mainAbout .aboutP {
+  display: flex;
+  align-items: center;
+  column-gap: 5%;
+  margin: 5% 0;
+  background-color: #A5A5A5;
+  color: #F9F9F9;
+  padding: 3%;
+}
+.mainAbout img {
+  max-width: 25%;
+}
+.mainAbout h3 {
+  font-size: 1.2rem;
+}
+.mainAbout h2 {
+  display: inline;
+  padding: 1%;
+  background-color: #A5A5A5;
+  color: #F9F9F9;
 }
 
 .calculator {
   height: 844px;
   width: 390px;
   background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding-bottom: 2%;
 }
 
 .keypad {
-  height: 59%;
+  height: 60%;
   display: grid;
   grid-template-columns: repeat(4, 78px);
   grid-template-rows: repeat(5, 78px);
@@ -50,13 +100,26 @@ main {
 }
 
 .displayPanel {
-  height: 35%;
   color: #F9F9F9;
   display: flex;
   justify-content: end;
   align-items: end;
   font-size: 4rem;
-  padding-right: 40px;
+  padding: 0 40px;
+  width: 100%;
+}
+
+nav {
+  background-color: #000000;
+  color: #F9F9F9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+nav a {
+  color: #F9F9F9;
+  text-decoration: none;
 }
 
 .bttn {
@@ -66,6 +129,7 @@ main {
   align-items: center;
   color: #F9F9F9;
   font-size: 2.2rem;
+  cursor: pointer;
 }
 .bttn--zero {
   justify-content: left;
@@ -84,6 +148,13 @@ main {
 
 .darkGrey {
   background-color: #333333;
+}
+
+a {
+  color: #000000;
+}
+a:hover {
+  color: #FF9400;
 }
 
 /*# sourceMappingURL=styles.css.map */

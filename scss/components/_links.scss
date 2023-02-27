@@ -1,0 +1,7 @@
+a{
+    color: map-get($colors, "btnBlack");
+
+    &:hover{
+        color: map-get($colors, "btnOrange");
+    }
+}

@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iphone Calculator Replica</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +13,22 @@
 </head>
 
 <body>
-    <main>
-        <div class="calculator ">
+    <nav>
+        <div>
+            <a href="./index.html"><h1>Iphone Calculator Replica</h1></a>
+            <h2>by <a href="https://github.com/francaceres" target="_blank">Francisco Cáceres</a></h2>
+        </div>
+        <a href="./pages/about.html"><h3>About</h3></a>
+    </nav>
+    <div class="viewController">
+        <a href="./pages/calc-only.html" target="_blank">View calculator only</a>
+        <div>
+            <input type="checkbox" id="viewReference" class="checkReference" checked>
+            <label for="viewReference">View image reference</label>
+        </div>
+    </div>
+    <main class="mainIndex">
+        <div class="calculator">
             <div class="displayPanel" id="displayPanel"></div>
 
             <div class="keypad" id="keypad">
@@ -41,12 +54,11 @@
             </div>
         </div>
 
-        <div>
-            <img src="./assets/calculator-image.jpg" alt="" class="imgComparison">
+        <div id="imgReference">
+            <img src="./assets/calculator-image.jpg" alt="" class="imgReference">
         </div>
     </main>
 
-    <script src="./script/bootstrap.bundle.min.js"></script>
     <script src="./script/index.js"></script>
 </body>
 </html>

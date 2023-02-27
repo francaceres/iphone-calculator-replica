@@ -1,0 +1,13 @@
+nav{
+    background-color: map-get($colors, "btnBlack");
+    color: map-get($colors, "btnWhite");
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+
+    a{
+        color: map-get($colors, "btnWhite");
+        text-decoration: none;
+    }
+}
